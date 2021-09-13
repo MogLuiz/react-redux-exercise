@@ -1,13 +1,17 @@
 /* eslint-disable import/no-anonymous-default-export */
 import './Intervalo.css'
 import React from 'react'
+
 import { connect } from 'react-redux'
+import { alterarNumeroMinimo } from '../store/actions/numeros'
 
 import Card from './Card'
 
 const Intervalo = (props) => {
 
     const { min, max } = props
+
+    props.alterarMinimo(10000)
 
     return (
         <Card title="Intervalo de Números" red>
@@ -38,4 +42,14 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Intervalo)
+const mapActionCreatorsToProps = (dispatch) => {
+    return {
+        alterarMinimo(novoNumero) {
+            // Action Creator -> action
+           const action = alterarNumeroMinimo(novoNumero)
+           dispatch(action)
+        }
+    }
+} 
+
+export default connect(mapStateToProps, mapActionCreatorsToProps)(Intervalo)
