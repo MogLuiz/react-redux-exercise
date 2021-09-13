@@ -5,4 +5,4 @@ export function alterarNumeroMinimo(novoNumero) {
         type: 'NUM_MIN_ALTERADO',
         payload: novoNumero
     }
-}
+} 

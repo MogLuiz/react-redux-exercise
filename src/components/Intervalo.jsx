@@ -11,8 +11,6 @@ const Intervalo = (props) => {
 
     const { min, max } = props
 
-    props.alterarMinimo(10000)
-
     return (
         <Card title="Intervalo de Números" red>
             <div className="Intervalo">
@@ -21,6 +19,7 @@ const Intervalo = (props) => {
                     <input 
                         type="number" 
                         value={min}
+                        onChange={e => props.alterarMinimo(+e.target.value)}
                     />
                 </span>
                 <span>
@@ -46,6 +45,7 @@ const mapDispatchToProp = (dispatch) => {
     return {
         alterarMinimo(novoNumero) {
             // Action Creator -> action
+           
            const action = alterarNumeroMinimo(novoNumero)
            dispatch(action)
         }
