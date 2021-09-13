@@ -42,7 +42,7 @@ const mapStateToProps = state => {
     }
 }
 
-const mapActionCreatorsToProps = (dispatch) => {
+const mapDispatchToProp = (dispatch) => {
     return {
         alterarMinimo(novoNumero) {
             // Action Creator -> action
@@ -52,4 +52,4 @@ const mapActionCreatorsToProps = (dispatch) => {
     }
 } 
 
-export default connect(mapStateToProps, mapActionCreatorsToProps)(Intervalo)
+export default connect(mapStateToProps, mapDispatchToProp)(Intervalo)
